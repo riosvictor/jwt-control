@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
 const Home: React.FC = () => {
@@ -6,13 +9,15 @@ const Home: React.FC = () => {
   const axiosPrivate = useAxiosPrivate();
 
   const getBookmarks = async () => {
-    const result = await axiosPrivate.get('/bookmarks');
+    const result = await axiosPrivate.get(
+      '/bookmarks',
+    );
     setBookmarks(result.data);
-  }
+  };
 
   useEffect(() => {
     getBookmarks();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -20,9 +25,7 @@ const Home: React.FC = () => {
 
       <ul>
         {bookmarks.map((bookmark, idx) => (
-          <li key={idx}>
-            {bookmark}
-          </li>
+          <li key={idx}>{bookmark}</li>
         ))}
       </ul>
 
@@ -35,6 +38,6 @@ const Home: React.FC = () => {
       </button>
     </>
   );
-}
+};
 
 export default Home;

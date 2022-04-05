@@ -1,2 +1,2 @@
-export * from './useAuth'
-export * from './useRefreshToken'
+export * from './useAuth';
+export * from './useRefreshToken';
